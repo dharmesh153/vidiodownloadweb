@@ -961,6 +961,499 @@ footer a:hover {
 	}
 }
 
+/*// Mock Download Feature Styles //*/
+
+/* Button Loading State */
+.hero__btn.loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	pointer-events: none;
+	opacity: 0.9;
+}
+
+.hero__btn .spinner {
+	width: 20px;
+	height: 20px;
+	border: 3px solid rgba(255, 255, 255, 0.3);
+	border-top-color: #fff;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.hero__btn .loading-text {
+	font-size: 16px;
+}
+
+/* Input Error State */
+.hero__inpit input.error {
+	border-color: #f44336 !important;
+	animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	20%,
+	60% {
+		transform: translateX(-5px);
+	}
+
+	40%,
+	80% {
+		transform: translateX(5px);
+	}
+}
+
+.vd__error-message {
+	color: #f44336;
+	font-size: 14px;
+	margin-top: 8px;
+	text-align: left;
+}
+
+/* Video Section Active State */
+.vd__section {
+	display: none;
+}
+
+.vd__section.active {
+	display: block;
+}
+
+/* Loading Container */
+.vd__loading-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+	text-align: center;
+}
+
+.vd__loading-spinner {
+	width: 60px;
+	height: 60px;
+	border: 5px solid rgba(var(--primary), 0.2);
+	border-top-color: rgb(var(--primary));
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+	margin-bottom: 20px;
+}
+
+.vd__loading-text {
+	font-size: 16px;
+	font-weight: 500;
+	color: rgba(var(--black), 70%);
+	margin-bottom: 20px;
+}
+
+/* Progress Bar */
+.vd__progress-bar {
+	width: 100%;
+	max-width: 300px;
+	height: 6px;
+	background: rgba(var(--black), 10%);
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.vd__progress-fill {
+	width: 0%;
+	height: 100%;
+	background: linear-gradient(90deg, rgb(var(--primary)), rgb(var(--secondary)));
+	border-radius: 3px;
+	animation: progress 35s linear forwards;
+}
+
+.vd__progress-download {
+	animation: progress 35s linear forwards;
+}
+
+@keyframes progress {
+	0% {
+		width: 0%;
+	}
+
+	5% {
+		width: 8%;
+	}
+
+	15% {
+		width: 18%;
+	}
+
+	25% {
+		width: 28%;
+	}
+
+	35% {
+		width: 38%;
+	}
+
+	45% {
+		width: 48%;
+	}
+
+	55% {
+		width: 58%;
+	}
+
+	65% {
+		width: 68%;
+	}
+
+	75% {
+		width: 78%;
+	}
+
+	85% {
+		width: 88%;
+	}
+
+	95% {
+		width: 95%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+/* Preview Container */
+.vd__preview-container {
+	width: 100%;
+	margin-bottom: 16px;
+}
+
+/* YouTube Play Overlay */
+.vd__play-overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
+
+.vd__thumbnail:hover .vd__play-overlay {
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Embed Placeholder */
+.vd__embed-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, rgba(var(--black), 5%), rgba(var(--black), 10%));
+	border: 2px dashed rgba(var(--black), 20%);
+	border-radius: 16px;
+	padding: 60px 20px;
+	min-height: 300px;
+}
+
+.vd__platform-icon {
+	margin-bottom: 20px;
+}
+
+.vd__platform-icon svg {
+	width: 64px;
+	height: 64px;
+}
+
+.vd__platform-name {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	color: rgba(var(--black), 80%);
+}
+
+.vd__load-preview-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 600;
+	color: rgb(var(--white));
+	background: rgb(var(--primary));
+	padding: 14px 28px;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+}
+
+.vd__load-preview-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(var(--primary), 0.3);
+}
+
+.vd__load-preview-btn svg {
+	width: 20px;
+	height: 20px;
+}
+
+/* Embedded Frame */
+.vd__embedded-frame {
+	width: 100%;
+	min-height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(var(--black), 3%);
+	border-radius: 16px;
+	padding: 20px;
+}
+
+.vd__embed-fallback {
+	flex-direction: column;
+	gap: 16px;
+	text-align: center;
+}
+
+.vd__embed-fallback p {
+	font-size: 16px;
+	color: rgba(var(--black), 60%);
+}
+
+/* Download Button States */
+.vd__download.downloading {
+	background: rgb(var(--primary));
+	pointer-events: none;
+}
+
+/* Responsive Thumbnail */
+.vd__thumbnail>img {
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+	object-fit: cover;
+}
+
+/* Info Section */
+.vd__info {
+	margin-bottom: 16px;
+}
+
+/* Preview Box - Simplified Platform Preview */
+.vd__preview-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, rgba(var(--black), 3%), rgba(var(--black), 8%));
+	border: 1px solid rgba(var(--black), 10%);
+	border-radius: 20px;
+	padding: 60px 40px;
+	text-align: center;
+	min-height: 280px;
+}
+
+.vd__platform-icon-large {
+	margin-bottom: 24px;
+}
+
+.vd__platform-icon-large svg {
+	width: 80px;
+	height: 80px;
+	filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.vd__video-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: rgba(var(--black), 90%);
+	margin-bottom: 8px;
+}
+
+.vd__video-info {
+	font-size: 14px;
+	color: rgba(var(--black), 60%);
+	margin: 0;
+}
+
+/* Error Container */
+.vd__error-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+	text-align: center;
+}
+
+.vd__error-icon {
+	margin-bottom: 20px;
+	animation: pulse-error 2s ease-in-out infinite;
+}
+
+@keyframes pulse-error {
+
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	50% {
+		transform: scale(1.05);
+		opacity: 0.8;
+	}
+}
+
+.vd__error-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #ef4444;
+	margin-bottom: 12px;
+}
+
+.vd__error-text {
+	font-size: 14px;
+	color: rgba(var(--black), 60%);
+	margin-bottom: 24px;
+	max-width: 400px;
+	line-height: 1.5;
+}
+
+.vd__retry-btn {
+	background: rgb(var(--primary));
+	color: #fff;
+	padding: 14px 32px;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	border: none;
+	transition: all 0.3s ease;
+}
+
+.vd__retry-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(var(--primary), 0.3);
+}
+
+/* Download Ready Container */
+.vd__download-ready {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+	text-align: center;
+}
+
+.vd__download-icon {
+	margin-bottom: 20px;
+	animation: bounce-check 2s ease-in-out infinite;
+}
+
+@keyframes bounce-check {
+
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+}
+
+.vd__download-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #22c55e;
+	margin-bottom: 12px;
+}
+
+.vd__download-text {
+	font-size: 14px;
+	color: rgba(var(--black), 60%);
+	margin: 0;
+}
+
+.vd__click-here {
+	color: rgb(var(--primary));
+	text-decoration: underline;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.vd__click-here:hover {
+	color: rgb(var(--secondary));
+}
+
+/* Dark Mode Overrides for New Styles */
+body.dark-mode .vd__loading-text {
+	color: rgba(var(--d-white), 70%);
+}
+
+body.dark-mode .vd__progress-bar {
+	background: rgba(var(--d-white), 10%);
+}
+
+body.dark-mode .vd__embed-placeholder {
+	background: linear-gradient(135deg, rgba(var(--d-white), 5%), rgba(var(--d-white), 10%));
+	border-color: rgba(var(--d-white), 20%);
+}
+
+body.dark-mode .vd__platform-name {
+	color: rgba(var(--d-white), 80%);
+}
+
+body.dark-mode .vd__embedded-frame {
+	background: rgba(var(--d-white), 5%);
+}
+
+body.dark-mode .vd__embed-fallback p {
+	color: rgba(var(--d-white), 60%);
+}
+
+body.dark-mode .hero__btn.loading {
+	background: #444444;
+}
+
+body.dark-mode .vd__error-message {
+	color: #ff6b6b;
+}
+
+body.dark-mode .vd__preview-box {
+	background: linear-gradient(135deg, rgba(var(--d-white), 3%), rgba(var(--d-white), 8%));
+	border-color: rgba(var(--d-white), 10%);
+}
+
+body.dark-mode .vd__video-title {
+	color: rgba(var(--d-white), 90%);
+}
+
+body.dark-mode .vd__video-info {
+	color: rgba(var(--d-white), 60%);
+}
+
+body.dark-mode .vd__error-text {
+	color: rgba(var(--d-white), 60%);
+}
+
+body.dark-mode .vd__platform-icon-large svg {
+	filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+body.dark-mode .vd__download-text {
+	color: rgba(var(--d-white), 60%);
+}
+
 :root {
 	/*	DarkColor*/
 	--dark-foreground-rgb: 15, 15, 15;
