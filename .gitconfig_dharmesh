@@ -1,0 +1,7 @@
+[user]
+    email = dharmeshgohil153@gmail.com
+    name = Dharmesh153
+
+[core]
+    # This tells Git to use your NEW specific SSH key for this folder only
+    sshCommand = "ssh -i ~/.ssh/id_videodown_web_Dharmesh153"
