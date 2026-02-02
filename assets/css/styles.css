@@ -289,7 +289,64 @@ footer .container {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
+	margin: 0 auto;
 	padding: 16px 0;
+	position: relative;
+}
+
+.mobile-menu-trigger {
+	display: none;
+	cursor: pointer;
+	padding: 8px;
+}
+
+.mobile-menu-trigger img {
+	width: 24px;
+	height: 24px;
+}
+
+.mobile-menu-trigger {
+	display: none;
+	cursor: pointer;
+	padding: 8px;
+}
+
+.mobile-menu-trigger img {
+	width: 24px;
+	height: 24px;
+}
+
+/* Mobile Menu Styles */
+.mobile-nav {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background: rgb(var(--white));
+	padding: 16px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+	border-radius: 0 0 12px 12px;
+}
+
+.mobile-nav.active {
+	display: block;
+}
+
+.mobile-nav ul {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.mobile-nav li {
+	width: 100%;
+	padding: 12px 0;
+	border-bottom: 1px solid rgba(var(--black), 0.05);
+}
+
+.mobile-nav li:last-child {
+	border-bottom: none;
 }
 
 header .logo img {
@@ -361,6 +418,7 @@ nav>ul>li a:hover {
 
 .hero__wrapper h1>span {
 	background: -webkit-linear-gradient(top, rgb(var(--primary)) 24%, rgb(var(--secondary)));
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -721,7 +779,28 @@ footer a:hover {
 @media (max-width: 768px) {
 
 	header nav,
+	.menu__tool,
 	.hero__wrapper h1 br {
+		display: none;
+	}
+
+	.mobile-menu-trigger {
+		display: block;
+		order: 1;
+		/* Left side */
+	}
+
+	header .logo {
+		order: 2;
+		/* Center */
+		margin: 0 auto;
+	}
+
+	.menu__wrapper {
+		justify-content: space-between;
+	}
+
+	.menu {
 		display: none;
 	}
 
@@ -942,6 +1021,7 @@ body.dark-mode .menu__tool>ul>li:hover {
 
 body.dark-mode .hero__wrapper h1>span {
 	background: -webkit-linear-gradient(top, rgb(var(--primary)) 24%, rgb(var(--secondary)));
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }

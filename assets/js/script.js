@@ -11,7 +11,49 @@
 		initDropdowns();
 		initInputClear();
 		initDownloadButton();
+		initDownloadButton();
+		initMobileMenu();
 	});
+
+	/**
+	 * Initialize mobile menu functionality
+	 */
+	function initMobileMenu() {
+		const trigger = document.querySelector('.mobile-menu-trigger');
+		const nav = document.querySelector('nav');
+
+		if (!trigger || !nav) return;
+
+		// Clone the nav for mobile use if it's inside the header
+		// Or strictly toggle a class if we structurally change HTML
+		// simpler approach:
+
+		trigger.addEventListener('click', function (e) {
+			e.preventDefault();
+			trigger.classList.toggle('active');
+
+			// Create or toggle mobile nav menu
+			let mobileNav = document.querySelector('.mobile-nav');
+			if (!mobileNav) {
+				mobileNav = document.createElement('div');
+				mobileNav.className = 'mobile-nav';
+				mobileNav.innerHTML = nav.innerHTML;
+				document.querySelector('.menu__wrapper').appendChild(mobileNav);
+			}
+
+			mobileNav.classList.toggle('active');
+		});
+
+		// Close menu when clicking outside
+		document.addEventListener('click', function (e) {
+			if (!e.target.closest('.menu__wrapper')) {
+				const mobileNav = document.querySelector('.mobile-nav');
+				if (mobileNav && mobileNav.classList.contains('active')) {
+					mobileNav.classList.remove('active');
+				}
+			}
+		});
+	}
 
 	/**
 	 * Initialize dropdown hover functionality
